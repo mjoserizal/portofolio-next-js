@@ -3,12 +3,9 @@ import remarkGfm from "remark-gfm"
 import type { NextConfig } from "next"
 
 const withMDX = createMDX({
-  extension: /\.(md|mdx)$/,
+  extension: /\.mdx?$/,
   options: {
-    mdxOptions: {
-      remarkPlugins: [remarkGfm],
-      rehypePlugins: [],
-    },
+    remarkPlugins: [remarkGfm],
   },
 })
 
