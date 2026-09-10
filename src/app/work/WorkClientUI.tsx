@@ -6,6 +6,7 @@ import { Suspense, useState, useEffect } from "react"
 import { FaFrown } from "react-icons/fa"
 import ActiveFilterChips from "@/components/ActiveFilterChips"
 import FilterDropdown from "@/components/FilterDropdown"
+import PageIntro from "@/components/PageIntro"
 import PaginationControls from "@/components/PaginationControls"
 import SortDropdown from "@/components/SortDropdown"
 import WorkItem from "@/components/WorkItem"
@@ -107,7 +108,13 @@ export default function WorkClientUI({
   }
 
   return (
-    <section className="px-4 max-w-4xl mx-auto">
+    <section className="px-4 max-w-6xl mx-auto pt-16 sm:pt-20 pb-16">
+      <PageIntro
+        eyebrow="Career timeline"
+        title="Work Experience"
+        description="The teams, products, and responsibilities that shaped how I build dependable digital experiences."
+        count={filteredWorkItems.length}
+      />
       <div className="flex flex-wrap justify-between gap-4 mb-8 items-center w-full">
         {/* Company Filter Dropdown - Left */}
         <div className="relative flex-grow md:flex-grow-0">

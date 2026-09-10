@@ -7,6 +7,7 @@ import { FaFrown } from "react-icons/fa"
 import ActiveFilterChips from "@/components/ActiveFilterChips"
 import BlogPost from "@/components/BlogPost"
 import FilterDropdown from "@/components/FilterDropdown"
+import PageIntro from "@/components/PageIntro"
 import PaginationControls from "@/components/PaginationControls"
 import SortDropdown from "@/components/SortDropdown"
 import { BlogPostProps } from "@/lib/types"
@@ -104,7 +105,13 @@ export default function BlogClientUI({
   }
 
   return (
-    <section className="px-4 max-w-4xl mx-auto">
+    <section className="px-4 max-w-6xl mx-auto pt-16 sm:pt-20 pb-16">
+      <PageIntro
+        eyebrow="Notes & ideas"
+        title="Blog"
+        description="Writing about frontend craft, automation, and the lessons that emerge from shipping real products."
+        count={filteredPosts.length}
+      />
       <div className="flex flex-wrap justify-between gap-4 mb-8 items-center w-full">
         {/* Tag Filter Dropdown - Left */}
         <div className="relative flex-grow md:flex-grow-0">
@@ -148,7 +155,7 @@ export default function BlogClientUI({
         {filteredPosts.length > 0 ? (
           <motion.div
             key="posts"
-            className="grid gap-6"
+            className="grid gap-6 md:grid-cols-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

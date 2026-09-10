@@ -28,15 +28,15 @@ export default function Header() {
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
         "text-black dark:text-white",
-        "bg-zinc-50/90 dark:bg-black/90",
-        "border-b border-gray-300 dark:border-gray-800",
+        "bg-[var(--surface)]/90 dark:bg-[var(--surface)]/90",
+        "border-b border-[var(--border)]",
         "backdrop-blur-md backdrop-saturate-150",
         "shadow-sm hover:shadow-md"
       )}
     >
       <div
         className={cn(
-          "max-w-4xl mx-auto w-full px-5 py-4 md:py-5",
+          "max-w-6xl mx-auto w-full px-5 py-4 md:py-5",
           "flex items-center justify-between gap-4",
           "transition-all duration-300"
         )}

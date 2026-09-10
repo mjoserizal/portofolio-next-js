@@ -21,9 +21,10 @@ interface DevIconProps {
  */
 export default function DevIcon({ name, text, className, iconClassName }: DevIconProps) {
   const [imgError, setImgError] = useState(false)
+  const usesFallbackIcon = name === "axios" || name === "rest-api"
 
   // If the image failed to load, show the CPU icon instead (with same sizing classes)
-  if (imgError) {
+  if (imgError || usesFallbackIcon) {
     if (text) {
       return (
         <div className={`flex items-center space-x-2 ${className ? className : ""}`}>

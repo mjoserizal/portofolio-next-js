@@ -47,10 +47,10 @@ export default function WorkItem({
           },
         }}
         className={cn(
-          "border border-gray-300 dark:border-gray-700 rounded-xl p-4 shadow-sm",
+          "border border-[var(--border)] rounded-xl p-5 shadow-sm",
           "hover:border-accent-500 transition cursor-pointer",
-          "bg-gray-100 dark:bg-gray-900",
-          "hover:bg-gray-200 dark:hover:bg-gray-800"
+          "bg-[var(--surface)] dark:bg-[var(--surface)]",
+          "hover:bg-[var(--surface-muted)] dark:hover:bg-[var(--surface-muted)]"
         )}
       >
         <div className="flex items-center">
@@ -79,7 +79,7 @@ export default function WorkItem({
           )}
         </div>
 
-        <p className="mt-2 text-gray-700">{description}</p>
+        <p className="mt-3 text-[var(--muted)] leading-relaxed">{description}</p>
       </motion.div>
     </Link>
   )

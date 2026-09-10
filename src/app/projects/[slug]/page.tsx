@@ -5,7 +5,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { compileMDX } from "next-mdx-remote/rsc"
 import { BsCardImage, BsStack } from "react-icons/bs"
-import { FaUsers, FaUserTie, FaClock, FaGithub, FaBook } from "react-icons/fa"
+import { FaUsers, FaUserTie, FaClock, FaGithub, FaBook, FaExternalLinkAlt } from "react-icons/fa"
 import rehypeHighlight from "rehype-highlight"
 import remark_gfm from "remark-gfm"
 import AnimatedArticle from "@/components/AnimatedArticle"
@@ -140,6 +140,17 @@ export default async function ProjectPage(props: { params: pageParams }) {
           >
             <FaGithub className="w-4 h-4" />
             <span>View on GitHub</span>
+          </Link>
+        )}
+        {frontmatter.liveUrl && (
+          <Link
+            href={frontmatter.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-accent-600 text-white hover:bg-accent-700 px-3 py-1 rounded-full text-sm transition"
+          >
+            <FaExternalLinkAlt className="w-3 h-3" />
+            <span>Visit website</span>
           </Link>
         )}
         {frontmatter.paperUrl && (

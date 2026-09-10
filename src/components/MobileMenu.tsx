@@ -51,8 +51,8 @@ export default function MobileMenu({
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
-          className="md:hidden overflow-hidden border-t border-gray-200 dark:border-gray-800
-                     bg-zinc-50/95 dark:bg-black/95 backdrop-blur-md"
+          className="md:hidden overflow-hidden border-t border-[var(--border)]
+                     bg-[var(--surface)]/95 backdrop-blur-md"
         >
           <motion.ul
             className="flex flex-col gap-2 px-4 py-4"
@@ -101,7 +101,7 @@ export default function MobileMenu({
                              ${
                                pathname === path
                                  ? "bg-accent-500 dark:bg-accent-600 text-white border-accent-600 dark:border-accent-500 shadow-md"
-                                 : "text-gray-700 dark:text-gray-200 border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800/50"
+                                 : "text-[var(--muted)] border-[var(--border)] hover:border-accent-400 hover:bg-[var(--surface-muted)]"
                              }`}
                   onClick={() => setIsOpenAction(false)}
                 >

@@ -39,6 +39,7 @@ export interface ProjectProps {
   teamSize?: number
   role?: string
   githubUrl?: string
+  liveUrl?: string
   paperUrl?: string
 }
 
@@ -55,6 +56,7 @@ export interface ProjectFrontmatter {
   teamSize?: number
   role?: string
   githubUrl?: string
+  liveUrl?: string
   paperUrl?: string
 }
 

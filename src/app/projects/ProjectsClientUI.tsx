@@ -6,6 +6,7 @@ import { Suspense, useState, useEffect } from "react"
 import { FaFrown } from "react-icons/fa"
 import ActiveFilterChips from "@/components/ActiveFilterChips"
 import FilterDropdown from "@/components/FilterDropdown"
+import PageIntro from "@/components/PageIntro"
 import PaginationControls from "@/components/PaginationControls"
 import ProjectTile from "@/components/ProjectTile"
 import SortDropdown from "@/components/SortDropdown"
@@ -107,7 +108,13 @@ export default function ProjectsClientUI({
   }
 
   return (
-    <section className="px-4 max-w-4xl mx-auto">
+    <section className="px-4 max-w-6xl mx-auto pt-16 sm:pt-20 pb-16">
+      <PageIntro
+        eyebrow="Selected work"
+        title="Projects"
+        description="A selection of digital products, experiments, and systems built to solve practical problems."
+        count={filteredProjects.length}
+      />
       <div className="flex flex-wrap justify-between gap-4 mb-8 items-center w-full">
         {/* Tech Stack Filter Dropdown - Left */}
         <div className="relative flex-grow md:flex-grow-0">
@@ -154,7 +161,7 @@ export default function ProjectsClientUI({
         {filteredProjects.length > 0 ? (
           <motion.div
             key="projects"
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

@@ -249,6 +249,9 @@ function validateProjectFrontmatter(
   if (fm.githubUrl !== undefined && typeof fm.githubUrl !== "string") {
     throw new Error(`Invalid frontmatter in ${filename}: githubUrl must be a string`)
   }
+  if (fm.liveUrl !== undefined && typeof fm.liveUrl !== "string") {
+    throw new Error(`Invalid frontmatter in ${filename}: liveUrl must be a string`)
+  }
   if (fm.paperUrl !== undefined && typeof fm.paperUrl !== "string") {
     throw new Error(`Invalid frontmatter in ${filename}: paperUrl must be a string`)
   }
@@ -279,6 +282,7 @@ export async function getAllProjects(): Promise<ProjectProps[]> {
       teamSize: fm.teamSize,
       role: fm.role,
       githubUrl: fm.githubUrl,
+      liveUrl: fm.liveUrl,
       paperUrl: fm.paperUrl,
     })
   )

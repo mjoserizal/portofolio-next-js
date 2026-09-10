@@ -33,7 +33,7 @@ export default function WorkPreview({ work }: WorkPreviewProps) {
       whileInView="visible"
       variants={fadeUpVariants}
       viewport={{ once: true, margin: "-100px" }}
-      className="mt-20"
+      className="mt-12 border-t border-[var(--border)] pt-12"
     >
       <ViewAllHeader title="Work Experience" pageUrl="/work" itemCount={work.length} />
       <motion.div

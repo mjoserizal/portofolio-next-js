@@ -6,6 +6,7 @@ import { ThemeProvider } from "next-themes"
 import React, { ReactNode } from "react"
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
+import IntroSplash from "@/components/IntroSplash"
 import { siteMetadata } from "@/data/metadata"
 import { cn } from "@/lib/utils"
 
@@ -67,6 +68,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               "mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]"
             )}
           />
+          <IntroSplash />
           <Header />
           <main className="grow container mx-auto px-4 py-6">
             {children}

@@ -7,6 +7,7 @@ import {
   staggerItemVariants,
 } from "@/components/home/animations"
 import BlogPreview from "@/components/home/BlogPreview"
+import FeaturedWebsites from "@/components/home/FeaturedWebsites"
 import ProjectsPreview from "@/components/home/ProjectsPreview"
 import QuickFacts from "@/components/home/QuickFacts"
 import WorkPreview from "@/components/home/WorkPreview"
@@ -29,47 +30,55 @@ interface HomeContentProps {
 export default function HomeContent({ blog, work, projects }: HomeContentProps) {
   return (
     <MotionConfig reducedMotion="user">
-      <section className="px-4 max-w-4xl mx-auto">
-        {/* Intro Section */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          variants={fadeUpVariants}
-          viewport={{ once: true }}
-          className="text-center mt-2"
-        >
-          <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-            Hi, I&#39;m {homeIntroConfig.shortName || homeIntroConfig.name}{" "}
-            <motion.span
-              initial={{ rotate: 0 }}
-              animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
-              transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
-              className="inline-block"
-            >
-              👋
-            </motion.span>
-          </h1>
-
+      <section className="px-4 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.65fr)] gap-10 lg:gap-16 items-start pt-32 sm:pt-24 pb-12 scroll-mt-24">
+          {/* Intro Section */}
           <motion.div
             initial="hidden"
             whileInView="visible"
-            variants={staggerContainerVariants}
+            variants={fadeUpVariants}
             viewport={{ once: true }}
-            className="space-y-4 max-w-3xl mx-auto mb-8"
+            className="text-left"
           >
-            {homeIntroConfig.introParagraphs.map((paragraph, index) => (
-              <motion.p
-                key={index}
-                variants={staggerItemVariants}
-                className="text-base sm:text-lg leading-relaxed text-gray-600 dark:text-gray-300 text-left"
-              >
-                {paragraph}
-              </motion.p>
-            ))}
-          </motion.div>
-        </motion.div>
+            <p className="mb-4 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent-600 dark:text-accent-400">
+              Front-End Developer · Automation Builder
+            </p>
 
-        <QuickFacts />
+            <h1 className="max-w-3xl text-4xl sm:text-6xl font-bold tracking-tight mb-6 text-gray-900 dark:text-gray-100">
+              Hi, I&#39;m {homeIntroConfig.shortName || homeIntroConfig.name}{" "}
+              <motion.span
+                initial={{ rotate: 0 }}
+                animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
+                transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
+                className="inline-block"
+              >
+                👋
+              </motion.span>
+            </h1>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              variants={staggerContainerVariants}
+              viewport={{ once: true }}
+              className="space-y-5 max-w-2xl"
+            >
+              {homeIntroConfig.introParagraphs.map((paragraph, index) => (
+                <motion.p
+                  key={index}
+                  variants={staggerItemVariants}
+                  className="text-base sm:text-lg leading-8 text-gray-600 dark:text-gray-300"
+                >
+                  {paragraph}
+                </motion.p>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          <QuickFacts className="mt-2 lg:mt-16" />
+        </div>
+
+        <FeaturedWebsites />
         <WorkPreview work={work} />
         <ProjectsPreview projects={projects} />
         <BlogPreview blog={blog} />

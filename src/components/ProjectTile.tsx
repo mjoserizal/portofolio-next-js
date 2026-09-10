@@ -15,6 +15,7 @@ interface ProjectTileProps {
   techStack?: string[]
   startDate?: string
   endDate?: string
+  liveUrl?: string
 }
 
 /**
@@ -30,6 +31,7 @@ export default function ProjectTile({
   techStack,
   startDate,
   endDate,
+  liveUrl,
 }: ProjectTileProps) {
   return (
     <Link href={`/projects/${slug}`} className="block h-full">
@@ -50,8 +52,8 @@ export default function ProjectTile({
         whileTap={{ scale: 0.98 }}
         className={cn(
           "group relative overflow-hidden rounded-lg h-full flex flex-col",
-          "border border-gray-300 dark:border-gray-700",
-          "bg-white dark:bg-gray-900",
+          "border border-[var(--border)]",
+          "bg-[var(--surface)] dark:bg-[var(--surface)]",
           "shadow-sm hover:shadow-2xl hover:shadow-accent-500/20",
           "hover:border-accent-500 dark:hover:border-accent-500",
           "transition-all duration-200",
@@ -62,16 +64,28 @@ export default function ProjectTile({
       >
         {/* Image Container */}
         <div className="relative w-full h-48 overflow-hidden bg-gray-100 dark:bg-gray-900">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            loading="lazy"
-            className={cn(
-              "object-cover transition-transform duration-300 group-hover:scale-110",
-              "rounded-b-lg border-b border-gray-300 dark:border-gray-700"
-            )}
-          />
+          {liveUrl ? (
+            <iframe
+              src={liveUrl}
+              title={`${title} live preview`}
+              loading="lazy"
+              tabIndex={-1}
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 h-full w-full border-0 bg-white"
+            />
+          ) : (
+            <Image
+              src={image}
+              alt={title}
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              loading="lazy"
+              className={cn(
+                "object-cover transition-transform duration-300 group-hover:scale-110",
+                "rounded-b-lg border-b border-[var(--border)]"
+              )}
+            />
+          )}
 
           {/* Overlay on Hover */}
           <motion.div
@@ -99,8 +113,8 @@ export default function ProjectTile({
         <div
           className={cn(
             "flex-1 p-4",
-            "bg-linear-to-b from-white to-gray-50",
-            "dark:from-gray-900 dark:to-gray-900/80",
+            "bg-linear-to-b from-[var(--surface)] to-[var(--surface-muted)]",
+            "dark:from-[var(--surface)] dark:to-[var(--surface-muted)]",
             "flex flex-col gap-3"
           )}
         >

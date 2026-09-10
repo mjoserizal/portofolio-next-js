@@ -5,7 +5,11 @@ import { factIconMap, homeIntroConfig } from "@/data/content"
 import { cn } from "@/lib/utils"
 import { fadeUpVariants } from "./animations"
 
-export default function QuickFacts() {
+interface QuickFactsProps {
+  className?: string
+}
+
+export default function QuickFacts({ className }: QuickFactsProps) {
   const allFacts = [
     ...Object.entries(homeIntroConfig.facts)
       .filter(([, value]) => value && value.trim() !== "")
@@ -22,7 +26,7 @@ export default function QuickFacts() {
       whileInView="visible"
       variants={fadeUpVariants}
       viewport={{ once: true, margin: "-50px" }}
-      className="mt-12 text-center"
+      className={cn("text-left", className)}
     >
       <motion.h2
         initial={{ opacity: 0, y: 10 }}
@@ -34,7 +38,7 @@ export default function QuickFacts() {
         Quick &amp; Fun Facts
       </motion.h2>
 
-      <div className="flex flex-wrap justify-center gap-3 px-4 max-w-4xl mx-auto">
+      <div className="flex flex-wrap justify-start gap-3 max-w-md">
         {allFacts.map((fact, i) => {
           const Icon = fact.icon
           return (
@@ -47,9 +51,9 @@ export default function QuickFacts() {
               whileHover={{ scale: 1.05, transition: { duration: 0.2, ease: "easeOut" } }}
               className={cn(
                 "flex items-center gap-2 px-4 py-2 rounded-full",
-                "border border-gray-300 dark:border-gray-700",
-                "bg-gray-50 dark:bg-gray-800",
-                "text-sm font-medium text-gray-700 dark:text-gray-300",
+                "border border-[var(--border)]",
+                "bg-[var(--surface)] dark:bg-[var(--surface)]",
+                "text-sm font-medium text-[var(--muted)]",
                 "shadow-sm hover:shadow-md",
                 "hover:border-accent-400 dark:hover:border-accent-600",
                 "transition-all duration-200 cursor-default"
