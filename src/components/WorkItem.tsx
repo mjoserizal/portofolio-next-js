@@ -54,7 +54,6 @@ export default function WorkItem({
         )}
       >
         <div className="flex items-center">
-
           <h3 className="text-xl font-semibold group-hover:text-accent-500 transition">
             {title} @ {company}
           </h3>
