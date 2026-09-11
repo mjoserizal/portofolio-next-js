@@ -16,6 +16,11 @@ const websites = [
     url: "https://priscaapps.vercel.app/",
     description: "Explore the live PRISCA APPS web experience.",
   },
+  {
+    name: "Wedding Invitation",
+    url: "https://wedding-invitation-porto.vercel.app/",
+    description: "Explore the live Wedding Invitation web experience.",
+  },
 ]
 
 export default function FeaturedWebsites() {
